@@ -46,9 +46,9 @@
                             <label>Ваш комментарий</label>
                             <textarea name="text_comments"></textarea>
                         </div>
-                        <div>
+                       <div>
                             <label>Ваше имя*</label>
-                            <input type="text" name="name">
+                            <input type="text" name="name" value="{{ user.username }}">
                         </div>
                         <div>
                             <label>Ваш Email*</label>
@@ -64,7 +64,7 @@
             <div>
                 {% for comment in post.comments_set.all %}
                     <div class="view-comment">
-                        <h4>{{ comment.name }}</h4>
+                        <h4>{{ user.username }}</h4>
                         <p>{{ comment.text_comments }}</p>
                     </div>
                 {% endfor %}
