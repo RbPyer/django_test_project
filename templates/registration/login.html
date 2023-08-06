@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <main>
+        <div class="row">
+            <div class="colm-logo">
+                <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo">
+                <h2>Our blog helps you connect and share with the people in your life.</h2>
+            </div>
+            <form class="colm-form" method="post">
+                {% csrf_token %}
+                <div class="form-container">
+                    <input type="text" name="username" id="userName" placeholder="Username">
+                    <input type="password" name="password" id="pwd" placeholder="Password">
+                    <button class="btn-login">Login</button>
+                    <a href="#">Forgotten password?</a>
+                </div>
+            </form>
+            <form class="colm-form" method="post">
+                {% csrf_token %}
+                <div>
+                    <a href="{% url 'blog:register' %}">Sign up</a>
+                </div>
+                {{ form.errors }}
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <ol>
+                <li>English (UK)</li>
+                <li><button>+</button></li>
+            </ol>
+        </div>
+    </footer>
+</body>
+</html>
